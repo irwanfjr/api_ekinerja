@@ -3,8 +3,9 @@
 var response = require('./res');
 var connection = require('./conn');
 
-exports.users = function (req, res) {
-    connection.query('SELECT * FROM person', function (error, rows, fields) {
+// List Kegiatan
+exports.kegiatan = function (req, res) {
+    connection.query('SELECT * FROM kegiatan', function (error, rows, fields) {
         if (error) {
             console.log(error)
         } else {
