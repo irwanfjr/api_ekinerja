@@ -49,7 +49,7 @@ exports.createkegiatan = function (req, res) {
         function (error, rows, fields) {
             if (error) {
                 console.log(error);
-            }else{
+            } else {
                 response.ok("Berhasil menambahkan kegiatan!", res);
             }
         });
@@ -57,6 +57,24 @@ exports.createkegiatan = function (req, res) {
 
 // upd
 exports.updatekegiatan = function (req, res) {
+    var jabatan = req.body.jabatan;
+    var kode_kegiatan = req.body.kode_kegiatan;
+    var uraian_tugas = req.body.uraian_tugas;
+    var satuan = req.body.satuan;
+    var angka_kredit = req.body.angka_kredit;
+    var output = req.body.output;
+    var no_sk = req.body.no_sk;
+    var id_kegiatan = req.body.id_kegiatan;
+
+    connection.query('UPDATE kegiatan SET jabatan=?, kode_kegiatan=?, uraian_tugas=?, satuan=?, angka_kredit=?, output=?, no_sk=? WHERE id_kegiatan=?',
+        [jabatan, kode_kegiatan, uraian_tugas, satuan, angka_kredit, output, no_sk, id_kegiatan],
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil update kegiatan!", res);
+            }
+        });
 };
 
 // del

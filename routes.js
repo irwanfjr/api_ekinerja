@@ -11,7 +11,7 @@ module.exports = function (app) {
 
     app.route('/kegiatan').post(todoList.createkegiatan);
 
-    // app.route('/kegiatan').put(todoList.updatekegiatan);
+    app.route('/kegiatan').put(todoList.updatekegiatan);
 
     // app.route('/kegiatan').delete(todoList.deletekegiatan);
 };
