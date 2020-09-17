@@ -79,4 +79,15 @@ exports.updatekegiatan = function (req, res) {
 
 // del
 exports.deletekegiatan = function (req, res) {
+    var id_kegiatan = req.body.id_kegiatan;
+
+    connection.query('DELETE FROM kegiatan WHERE id_kegiatan = ?',
+        [id_kegiatan],
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error)
+            } else {
+                response.ok("Berhasil menghapus kegiatan!", res)
+            }
+        });
 };
